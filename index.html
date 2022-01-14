@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="/icon.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <script defer src="script.js"></script>
+    <title>mapty // Mapeie seus exercicios</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <img src="logo.png" alt="Logo" class="logo" />
+
+      <ul class="workouts">
+        <form class="form hidden">
+          <div class="form__row">
+            <label class="form__label">Tipo</label>
+            <select class="form__input form__input--type">
+              <option value="running">Corrida</option>
+              <option value="cycling">Ciclismo</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label class="form__label">Distancia</label>
+            <input class="form__input form__input--distance" placeholder="km" />
+          </div>
+          <div class="form__row">
+            <label class="form__label">Duração</label>
+            <input
+              class="form__input form__input--duration"
+              placeholder="min"
+            />
+          </div>
+          <div class="form__row">
+            <label class="form__label">Cadência</label>
+            <input
+              class="form__input form__input--cadence"
+              placeholder="step/min"
+            />
+          </div>
+          <div class="form__row form__row--hidden">
+            <label class="form__label">Ganho de elevação</label>
+            <input
+              class="form__input form__input--elevation"
+              placeholder="meters"
+            />
+          </div>
+          <button class="form__btn">OK</button>
+        </form>
+
+        <!-- <li class="workout workout--running" data-id="1234567890">
+          <h2 class="workout__title">Running on April 14</h2>
+          <div class="workout__details">
+            <span class="workout__icon">🏃‍♂️</span>
+            <span class="workout__value">5.2</span>
+            <span class="workout__unit">km</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⏱</span>
+            <span class="workout__value">24</span>
+            <span class="workout__unit">min</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⚡️</span>
+            <span class="workout__value">4.6</span>
+            <span class="workout__unit">min/km</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">🦶🏼</span>
+            <span class="workout__value">178</span>
+            <span class="workout__unit">spm</span>
+          </div>
+        </li>
+
+        <li class="workout workout--cycling" data-id="1234567891">
+          <h2 class="workout__title">Cycling on April 5</h2>
+          <div class="workout__details">
+            <span class="workout__icon">🚴‍♀️</span>
+            <span class="workout__value">27</span>
+            <span class="workout__unit">km</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⏱</span>
+            <span class="workout__value">95</span>
+            <span class="workout__unit">min</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⚡️</span>
+            <span class="workout__value">16</span>
+            <span class="workout__unit">km/h</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⛰</span>
+            <span class="workout__value">223</span>
+            <span class="workout__unit">m</span>
+          </div>
+        </li> -->
+      </ul>
+
+      <p class="copyright">
+        &copy; Copyright por Jaubert Machado, criado ao decorrer do curso <br />
+        The Complete JavaScript Course 2021.
+      </p>
+    </div>
+
+    <div id="map"></div>
+  </body>
+</html>
+
+<!-- Planejamento de Projeto: 
+1. User stories, são pequenas histórias pelo ponto de vista do usuário, como ele gostaria de usar o aplicativo, como ele gostaria que o aplicativo se comportasse e as funções que ele quer que o aplicativo tenha, isso ajuda a ter uma ideia por cima do que precisamos implementar.
+
+2. Features, auto explicativo, aqui vamos decidir quais features o app possui. 
+
+3. Flowchard, o que vamos construir. 
+
+4. Archtecture, como vamos construir, vamos separar em varios arquivos? Que tipo de paradigma vamos usar, qual será a abordagem? 
+
+5. Development step, aqui começamos a coddar. 
+
+1. User Story
+Um exemplo de user story e como construimos um.
+"Como usuário eu quero salvar minhas corridas com localização, distancia, tempo e ritmo e passos por minuto, para que eu mantenha um registro dos meus treinos"
+
+Construimos um user stories da seguinte forma: Como um [tipo de usuario], eu quero [uma ação] para que eu [beneficio]
+
+2. Features
+
+• Registrar meus exercicios com localização, distancia, tempo, ritmo e passos/minuto
+• Registrar minhas pedaladas com localização, distancia, tempo, velocidade e ganho de elevação
+• Ver todos os meus exercicios facilmente
+• Ver meus exercicios em um mapa
+• Ver todos os meus exercicios quando eu sair e voltar ao app depois 
+
+- Mapa aonde o usuario clicka para adicionar novos exercicios(melhor forma de conseguir coordenadas de um local)
+- Geolocalização para mostrar o mapa no local do usuário(mais user friendly)
+- Form para usuario inserir a distancia, tempo, ritmo e passos por minuto
+- Form para usuario inserir distancia, tempo, velocidade, ganho de elevação.
+- Mostrar todos os exercicios em uma lista
+- Mostrar todos os exercicios no mapa
+- Guardar os dados no browser usando local storage API
+- Quando carregar a pagina, ler os dados guardados do local storage e exibir
+
+-->
