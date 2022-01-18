@@ -35,7 +35,6 @@
 <h1 id="demo">Project demo</h1>
 
 <h1 align="center">
-  <h2 align="center">Desktop</h2>
   <h1 align="center">
   <img src="/gif/mapty.gif">
     </h1>
