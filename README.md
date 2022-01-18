@@ -2,7 +2,7 @@
 <img src="logo.png">
   </h1>
   
-<h1 align="center"> Bankist </h1> 
+<h1 align="center"> Mapty </h1> 
 <p align="center"><a href="https://jaubert-machado.github.io/mapty/">Project link</a></p>
 
 <p align="center"> Project made during The Complete Javascript Course 2021 (by: Jonas Schmedtmann), Mapty is an application for managing your exercises . </p>
