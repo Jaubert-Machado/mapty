@@ -32,8 +32,8 @@
   <li> <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS"> CSS </a> </li>
 <li> <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript"> Javascript </a> </li>
   </ul>
-<h1 id="demo">Project demo</h1>
 
+<h1 id="demo">Project demo</h1>
 <h1 align="center">
   <h1 align="center">
   <img src="/gif/mapty.gif">
